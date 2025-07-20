@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import EducationLoader from "@/components/ui/EducationLoader";
 import {
   Star,
   Award,
@@ -15,24 +14,34 @@ const EducationSection = () => {
 
   const educationData = [
     {
-      degree: "Secondary School Certificate (SSC)",
-      school: "Natore Textile Institute",
-      mascot: "📘",
-      year: "2019-2021",
-      achievements: ["GPA: 4.89", "Subject: Science"],
-      skills: ["Mathematics", "Physics", "Chemistry", "Biology"],
+      degree: "Bachelor's Degree in Computer Science",
+      school: "Thakur Ramnarayan College of Arts and Commerce",
+      mascot: "🎓",
+      year: "2023 – 2026 (Pursuing)",
+      achievements: ["Current CGPA: 8.7", "Major: Computer Science"],
+      skills: ["Python", "Java", "JavaScript", "HTML", "CSS", "SQL", "MongoDB"],
       description:
-        "Focused on core science subjects with emphasis on practical laboratory work and scientific research methodologies.",
+        "Building a solid foundation in core computer science subjects with hands-on experience in software development, programming, and databases.",
     },
     {
       degree: "Higher Secondary Certificate (HSC)",
-      school: "Dottopara Model Degree College",
+      school: "Royal College of Arts, Science, and Commerce",
       mascot: "📗",
-      year: "2021-2023",
-      achievements: ["GPA: 4.25", "Subject: Arts"],
-      skills: ["Literature", "Social Studies", "Economics", "History"],
+      year: "2021 – 2023",
+      achievements: ["66.83% overall", "Stream: Science"],
+      skills: ["Mathematics", "Physics", "Computer Science", "Statistics"],
       description:
-        "Developed strong analytical and critical thinking skills through comprehensive study of humanities and social sciences.",
+        "Studied science stream with a focus on analytical thinking and foundational technical skills.",
+    },
+    {
+      degree: "Secondary School Certificate (SSC)",
+      school: "Mount Carmel School",
+      mascot: "📘",
+      year: "2019 – 2020",
+      achievements: ["Score: 90%"],
+      skills: ["Science", "Mathematics", "English", "Marathi"],
+      description:
+        "Excelled in core subjects, developed strong discipline, time management, and study habits during secondary education.",
     },
   ];
 

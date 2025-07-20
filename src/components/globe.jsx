@@ -1,44 +1,38 @@
+import React from "react";
 import IconCloud from "./ui/icon-cloud";
-
-const slugs = [
-  "typescript",
-  "javascript",
-  "dart",
+const iconSlugs = [
+  "python",
   "java",
-  "react",
-  "flutter",
-  "android",
+  "cplusplus",
+  "javascript",
   "html5",
   "css3",
+  "sql",
+  "json",
   "nodedotjs",
-  "express",
-  "nextdotjs",
-  "prisma",
-  "amazonaws",
-  "postgresql",
+  "mongodb",
   "firebase",
-  "nginx",
+  "redux",
+  "postman",
+  "react",
   "vercel",
-  "testinglibrary",
-  "jest",
-  "cypress",
-  "docker",
   "git",
-  "jira",
   "github",
-  "gitlab",
-  "visualstudiocode",
   "androidstudio",
-  "sonarqube",
+  "linux",
   "figma",
+  "canva",
+  "dsa",
+  "leetcode",
 ];
 
-function IconCloudDemo() {
+
+const IconCloudDemo = () => {
   return (
-    <div className="relative flex size-full max-w-lg items-center justify-center overflow-hidden rounded-lg  px-20 pb-20 pt-8 bg-transparent">
-      <IconCloud iconSlugs={slugs} />
+    <div className="relative flex w-full max-w-3xl items-center justify-center rounded-lg bg-transparent px-10 py-16 overflow-hidden">
+      <IconCloud iconSlugs={iconSlugs} />
     </div>
   );
-}
+};
 
 export default IconCloudDemo;

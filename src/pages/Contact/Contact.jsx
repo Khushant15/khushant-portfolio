@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Send, Phone, MapPin, Mail } from "lucide-react";
+import { Send, Phone, MapPin, Mail, Github, Linkedin } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -51,16 +51,14 @@ export default function Contact() {
       return;
     }
 
-    // Create a new FormData object to send to Web3Forms API
     const form = new FormData();
-    form.append("access_key", "90f4b8af-e590-42b0-beaf-10b18f66a703"); // Replace with your Web3Forms access key
+    form.append("access_key", "0e4a70e0-9df8-45b2-b472-431e5a710291");
     form.append("name", formData.name);
     form.append("email", formData.email);
     form.append("subject", formData.subject || "New Contact Form Submission");
     form.append("message", formData.message);
 
     try {
-      // Send form data to Web3Forms API
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: form,
@@ -87,10 +85,7 @@ export default function Contact() {
   };
 
   return (
-    <main
-      className="pt-20 lg:pt-[0rem] bg-[#04081A]
- text-white min-h-screen"
-    >
+    <main className="pt-20 lg:pt-[0rem] bg-[#04081A] text-white min-h-screen">
       <section className="hero min-h-screen flex items-center relative px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -101,7 +96,7 @@ export default function Contact() {
                   Get in Touch
                 </h2>
                 <p className="text-gray-300 text-lg">
-                  Have a question or want to work together? Drop us a message!
+                  Have a question or want to work together? Drop me a message!
                 </p>
               </div>
 
@@ -112,7 +107,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold">Email</h3>
-                    <p className="text-gray-400">olovajs@gmail.com</p>
+                    <p className="text-gray-400">khushantsharma766@gmail.com</p>
                   </div>
                 </div>
 
@@ -122,7 +117,51 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold">Location</h3>
-                    <p className="text-gray-400">Laxmipure, Natore 6400</p>
+                    <p className="text-gray-400">Vasai, India</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-4">
+                  <div className="bg-green-500/10 p-3 rounded-lg">
+                    <Phone className="w-6 h-6 text-green-400" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">Phone</h3>
+                    <p className="text-gray-400">+91 7208500953</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-4">
+                  <div className="bg-gray-500/10 p-3 rounded-lg">
+                    <Github className="w-6 h-6 text-gray-300" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">GitHub</h3>
+                    <a
+                      href="https://github.com/Khushant15"
+                      className="text-gray-400 hover:text-white"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      github.com/Khushant15
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-4">
+                  <div className="bg-blue-500/10 p-3 rounded-lg">
+                    <Linkedin className="w-6 h-6 text-blue-400" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">LinkedIn</h3>
+                    <a
+                      href="https://www.linkedin.com/in/khushant-sharma-9318962b2"
+                      className="text-gray-400 hover:text-white"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      linkedin.com/in/khushant-sharma-9318962b2
+                    </a>
                   </div>
                 </div>
               </div>

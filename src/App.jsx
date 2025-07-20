@@ -16,9 +16,9 @@ export default function App() {
   return (
     <>
       <Header />
+
       {/* Conditional Rendering */}
       {isOnePage ? (
-        // One-Page Mode: Render all components together
         <>
           <Hero />
           <Skills />
@@ -27,8 +27,7 @@ export default function App() {
           <Contact />
         </>
       ) : (
-        // Router Mode: Use routes for navigation
-        <Routes>`
+        <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/experience" element={<Experience />} />
