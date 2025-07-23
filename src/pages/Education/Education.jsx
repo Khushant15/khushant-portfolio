@@ -1,13 +1,63 @@
 import React, { useState } from "react";
 import {
-  Star,
   Award,
   Calendar,
   BookOpen,
-  GraduationCap,
   Trophy,
 } from "lucide-react";
 import { motion } from "framer-motion";
+
+const colorMap = ["purple", "yellow", "pink"];
+const glowMap = {
+  purple: "bg-purple-500/10 text-purple-300",
+  yellow: "bg-yellow-500/10 text-yellow-300",
+  pink: "bg-pink-500/10 text-pink-300",
+};
+const glowBlurMap = {
+  purple: "bg-purple-400",
+  yellow: "bg-yellow-400",
+  pink: "bg-pink-400",
+};
+
+const GlowingSkillPill = ({ skill, delay = 0, color = "purple" }) => {
+  return (
+    <motion.div
+      className={`relative px-3 py-1 rounded-full text-xs font-medium shadow-md overflow-hidden ${glowMap[color]}`}
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{
+        opacity: [0.8, 1, 0.8],
+        scale: [1, 1.05, 1],
+      }}
+      transition={{
+        duration: 2,
+        repeat: Infinity,
+        repeatType: "loop",
+        ease: "easeInOut",
+        delay,
+      }}
+      whileHover={{
+        scale: 1.1,
+        boxShadow: `0 0 10px var(--tw-${color}-400)`,
+      }}
+    >
+      <span className="relative z-10">{skill}</span>
+      <motion.span
+        className={`absolute inset-0 rounded-full ${glowBlurMap[color]} opacity-20 blur-md`}
+        animate={{
+          scale: [0.95, 1.1, 0.95],
+          opacity: [0.2, 0.4, 0.2],
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          repeatType: "loop",
+          ease: "easeInOut",
+          delay,
+        }}
+      />
+    </motion.div>
+  );
+};
 
 const EducationSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -19,9 +69,10 @@ const EducationSection = () => {
       mascot: "🎓",
       year: "2023 – 2026 (Pursuing)",
       achievements: ["Current CGPA: 8.7", "Major: Computer Science"],
-      skills: ["Python", "Java", "JavaScript", "HTML", "CSS", "SQL", "MongoDB"],
+      skills: ["Python", "Java", "JavaScript", "React", "Kotlin", "SQL", "MongoDB"],
       description:
         "Building a solid foundation in core computer science subjects with hands-on experience in software development, programming, and databases.",
+      color: "purple",
     },
     {
       degree: "Higher Secondary Certificate (HSC)",
@@ -29,9 +80,10 @@ const EducationSection = () => {
       mascot: "📗",
       year: "2021 – 2023",
       achievements: ["66.83% overall", "Stream: Science"],
-      skills: ["Mathematics", "Physics", "Computer Science", "Statistics"],
+      skills: ["Mathematics", "Physics", "Chemistry", "Economics"],
       description:
         "Studied science stream with a focus on analytical thinking and foundational technical skills.",
+      color: "yellow",
     },
     {
       degree: "Secondary School Certificate (SSC)",
@@ -42,6 +94,7 @@ const EducationSection = () => {
       skills: ["Science", "Mathematics", "English", "Marathi"],
       description:
         "Excelled in core subjects, developed strong discipline, time management, and study habits during secondary education.",
+      color: "pink",
     },
   ];
 
@@ -49,9 +102,7 @@ const EducationSection = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
+      transition: { staggerChildren: 0.2 },
     },
   };
 
@@ -60,10 +111,7 @@ const EducationSection = () => {
     visible: {
       y: 0,
       opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
@@ -152,12 +200,12 @@ const EducationSection = () => {
 
                 <div className="flex flex-wrap gap-2">
                   {edu.skills.map((skill, i) => (
-                    <span
+                    <GlowingSkillPill
                       key={i}
-                      className="px-2 py-1 text-xs rounded bg-blue-500/10 text-blue-300"
-                    >
-                      {skill}
-                    </span>
+                      skill={skill}
+                      delay={i * 0.2}
+                      color={edu.color}
+                    />
                   ))}
                 </div>
               </div>

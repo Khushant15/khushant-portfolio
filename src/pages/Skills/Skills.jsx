@@ -1,3 +1,5 @@
+// src/pages/Skills.jsx
+
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -15,6 +17,7 @@ import {
   FaCss3Alt,
   FaJsSquare,
   FaAndroid,
+  FaPhp,
 } from "react-icons/fa";
 import {
   SiMongodb,
@@ -22,13 +25,12 @@ import {
   SiCanva,
   SiCplusplus,
   SiSqlite,
-  SiRedux,
   SiVercel,
   SiVite,
   SiJsonwebtokens,
-  SiPostman,
+  SiKotlin,
+  SiXml,
 } from "react-icons/si";
-import { BsGrid1X2 } from "react-icons/bs";
 import { MdAnimation } from "react-icons/md";
 
 const SkillCard = ({ icon: Icon, title, skills, color }) => (
@@ -74,10 +76,13 @@ const SkillsSection = () => {
         { name: "Java", icon: <FaJava className="w-4 h-4 text-[#007396]" /> },
         { name: "C++", icon: <SiCplusplus className="w-4 h-4 text-[#00599C]" /> },
         { name: "JavaScript", icon: <FaJsSquare className="w-4 h-4 text-[#F7DF1E]" /> },
+        { name: "PHP", icon: <FaPhp className="w-4 h-4 text-[#777BB4]" /> },
+        { name: "Kotlin", icon: <SiKotlin className="w-4 h-4 text-[#A97BFF]" /> },
         { name: "HTML", icon: <FaHtml5 className="w-4 h-4 text-[#E34F26]" /> },
         { name: "CSS", icon: <FaCss3Alt className="w-4 h-4 text-[#1572B6]" /> },
         { name: "SQL", icon: <SiSqlite className="w-4 h-4 text-[#003B57]" /> },
         { name: "JSON", icon: <SiJsonwebtokens className="w-4 h-4 text-[#F7DF1E]" /> },
+        { name: "XML", icon: <SiXml className="w-4 h-4 text-[#0060AC]" /> },
       ],
     },
     {
@@ -88,8 +93,6 @@ const SkillsSection = () => {
         { name: "Node.js", icon: <FaNodeJs className="w-4 h-4 text-[#339933]" /> },
         { name: "MongoDB", icon: <SiMongodb className="w-4 h-4 text-[#47A248]" /> },
         { name: "Firebase", icon: <SiFirebase className="w-4 h-4 text-[#FFCA28]" /> },
-        { name: "Redux", icon: <SiRedux className="w-4 h-4 text-[#764ABC]" /> },
-        { name: "Postman", icon: <SiPostman className="w-4 h-4 text-[#FF6C37]" /> },
       ],
     },
     {
@@ -128,9 +131,7 @@ const SkillsSection = () => {
 
   return (
     <main className="pt-15 lg:pt-0 text-white min-h-screen bg-[#04081A] relative">
-      {/* Grid Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
-
       <section className="container mx-auto px-4 py-11 relative z-10">
         <div className="flex justify-center items-center mb-10">
           <IconCloudDemo />

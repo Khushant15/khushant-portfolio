@@ -96,7 +96,7 @@ export default function Header() {
 
                 {/* Resume Download Button */}
                 <a
-                  href="/src/assets/resume/Khushant_Resume.pdf"
+                  href="/Khushant_Resume.pdf"
                   download="Khushant_Resume.pdf"
                   className="px-3 py-2 md:py-1.5 rounded-lg md:rounded-full text-sm font-medium flex items-center gap-2 bg-gradient-to-r from-teal-500 to-blue-500 text-white hover:brightness-110 transition"
                 >
