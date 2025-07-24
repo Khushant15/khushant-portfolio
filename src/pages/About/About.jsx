@@ -51,7 +51,7 @@ export default function About() {
                         height="20"
                         width="auto"
                       />
-                      <span className="text-white">Path2Learn</span>
+                      <span className="text-white">CodeBuddy</span>
                     </div>
                   </div>
                 </blockquote>
