@@ -10,7 +10,7 @@ const projects = [
   {
     title: "Personal Portfolio Website",
     description:
-      "A personal portfolio website built with React and Tailwind CSS showcasing skills, experience, and projects with a modern UI.",
+      "A responsive portfolio built with React, Vite, and Tailwind CSS to showcase my skills, projects, and experience with a modern UI. Features include dark/light mode, animated skills sphere, scroll animations, project previews with GitHub/demo links, and a contact form with resume download. Designed to highlight my front-end development skills and provide a clean, professional user experience.",
     src: portfolioImg,
     link: portfolioImg,
     color: "#4ADE80", // emerald
