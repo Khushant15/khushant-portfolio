@@ -18,15 +18,16 @@ const projects = [
     liveLink: "https://khushant-portfolio.vercel.app",
   },
   {
-    title: "CodeBuddy (In Progress)",
-    description:
-      "CodeBuddy is a beginner-friendly mobile app designed to help students learn programming, debug real errors, and build logic visually. It features a guided learning system, AI-based debug assistant, and step-by-step code visualizations.",
-    src: codebuddyImg,
-    link: codebuddyImg,
-    color: "#60A5FA", // blue
-    githubLink: "", // In progress
-    liveLink: "",   // In progress
-  },
+  title: "CodeBuddy Web App",
+  description:
+    "CodeBuddy is an interactive web platform designed to help students learn programming through hands-on coding, real-time error feedback, and AI-powered debugging. Built with React, Next.js, Firebase, and Tailwind CSS, it features a built-in code editor, progressive lessons, topic-wise quizzes, and a leaderboard system. Ideal for beginners and intermediate learners aiming to strengthen logic-building skills in a practical way.",
+  src: codebuddyImg,
+  link: codebuddyImg,
+  color: "#60A5FA", // blue
+  githubLink: "https://github.com/Khushant15/CodeBuddy-3t",
+  liveLink: "https://v0-codebuddy-web-app.vercel.app/",
+},
+
 ];
 
 export default function Projects() {
