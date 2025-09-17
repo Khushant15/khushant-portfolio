@@ -22,22 +22,22 @@ export default function About() {
               </div>
             </div>
 
-            <div className="relative space-y-4">
-              <p className="text-white">
-                Hello! I'm Khushant Devendra Sharma, a passionate Computer Science student and aspiring full-stack developer with a strong interest in AI and programming education.
-                <span className="font-bold text-white">
-                  I'm currently building Path2Learn – a platform to simplify programming fundamentals and debugging for beginners.
-                </span>
-              </p>
-              <p className="text-white">
-                I enjoy creating intuitive, responsive web and mobile applications using modern technologies. I'm also working on strengthening my backend and database skills to become a well-rounded software engineer.
-              </p>
+          <div className="relative space-y-4">
+  <p className="text-white">
+    Hello! I'm Khushant Devendra Sharma, a passionate Computer Science student and aspiring full-stack developer with a strong interest in AI and programming education. 
+    <span className="font-bold text-white">
+      I'm currently developing CodeBuddy – an interactive web application designed to make code learning, debugging, and logic-building easier and more engaging for learners of all levels.
+    </span>
+  </p>
+  <p className="text-white">
+    I enjoy building intuitive, responsive web and mobile applications using modern technologies. Alongside this, I am deepening my expertise in backend development and databases to grow into a well-rounded software engineer capable of delivering end-to-end solutions.
+  </p>
 
-              <div className="pt-6">
-                <blockquote className="border-l-4 border-gray-300 pl-4">
-                  <p className="text-white">
-                    I'm a curious and dedicated learner, always eager to explore new tools and frameworks. My goal is to create accessible learning experiences for future developers and contribute meaningfully to the tech community.
-                  </p>
+  <div className="pt-6">
+    <blockquote className="border-l-4 border-gray-300 pl-4">
+      <p className="text-white">
+        I'm a curious and dedicated learner, always eager to explore new tools, frameworks, and architectural patterns. My mission is to create accessible, practical, and impactful learning experiences for future developers while contributing meaningfully to the tech community.
+      </p>
 
                   <div className="mt-6 space-y-3">
                     <cite className="block font-medium text-white">
