@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" class="dark"> <!-- Add class="dark" if you're using Tailwind dark mode -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khushant Sharma</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon-BFX4gyio.ico" type="image/x-icon" />
+
+  <!-- Meta Description for SEO -->
+  <meta name="description" content="Portfolio of Khushant Sharma - Full Stack Developer, Python Developer, and more. Projects, skills, and contact details." />
+  <meta name="theme-color" content="#04081A" />
+
+  <!-- Optional: Apple Touch Icon -->
+  <link rel="apple-touch-icon" href="/assets/favicon-BFX4gyio.ico" />
+
+  <!-- Vite -->
+  <script type="module" crossorigin src="/assets/index-DIQ54xvu.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DKw6SrxM.css">
+</head>
+
+<body class="bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
+  <div id="root"></div>
+</body>
+
+</html>

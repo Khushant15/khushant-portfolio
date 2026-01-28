@@ -1,0 +1,137 @@
+import React, { useState, useEffect } from "react";
+import {
+  FaHome,
+  FaLaptopCode,
+  FaUser,
+  FaBriefcase,
+  FaGraduationCap,
+  FaCode,
+  FaEnvelope,
+  FaBars,
+  FaSun,
+  FaMoon,
+  FaDownload,
+} from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
+
+export default function Header() {
+  const location = useLocation();
+  const [activeLink, setActiveLink] = useState(() => {
+    const path = location.pathname.substring(1) || "home";
+    return path;
+  });
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isDark, setIsDark] = useState(() =>
+    localStorage.getItem("theme") === "dark"
+  );
+
+  // Handle window resize
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Toggle dark/light mode
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDark]);
+
+  const toggleDarkMode = () => {
+    setIsDark((prev) => !prev);
+  };
+
+  const navLinks = [
+    { id: "home", icon: FaHome, text: "Home", path: "/" },
+    { id: "skills", icon: FaCode, text: "Skills", path: "/skills" },
+    { id: "experience", icon: FaBriefcase, text: "Experience", path: "/experience" },
+    { id: "education", icon: FaGraduationCap, text: "Education", path: "/education" },
+    { id: "projects", icon: FaLaptopCode, text: "Projects", path: "/projects" },
+    { id: "contact", icon: FaEnvelope, text: "Contact", path: "/contact" },
+  ];
+
+  return (
+    <header className="fixed top-0 left-0 w-full z-50 bg-gray-900/95 dark:bg-gray-800/95 backdrop-blur-md md:bg-transparent md:backdrop-blur-none">
+      <div className="md:fixed md:top-4 md:left-1/2 md:transform md:-translate-x-1/2 w-full md:w-auto">
+        <div className="p-[2px] md:rounded-full bg-gradient-to-r from-emerald-400 via-cyan-500 to-indigo-500 animate-gradient-x">
+          <nav className="bg-gray-900/90 dark:bg-gray-800/90 backdrop-blur-md md:rounded-full px-4 md:px-6 py-2.5">
+            {/* Mobile Header */}
+            <div className="flex justify-between items-center md:hidden px-2">
+              <Link to="/" className="text-white font-bold">Portfolio</Link>
+              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white p-2">
+                <FaBars />
+              </button>
+            </div>
+
+            {/* Navigation Links */}
+            <div className={`${isMenuOpen ? "block" : "hidden"} md:block`}>
+              <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-1 lg:gap-2 py-4 md:py-0">
+                {navLinks.map(({ id, icon: Icon, text, path }) => (
+                  <Link
+                    key={id}
+                    to={path}
+                    onClick={() => {
+                      setActiveLink(id);
+                      setIsMenuOpen(false);
+                    }}
+                    className={`px-3 py-2 md:py-1.5 rounded-lg md:rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2
+                      hover:bg-white/10 
+                      ${
+                        activeLink === id
+                          ? "bg-white/15 text-white"
+                          : "text-gray-300 hover:text-white"
+                      }`}
+                  >
+                    <Icon className={`text-base ${activeLink === id ? "scale-110" : ""}`} />
+                    <span className="inline">{text}</span>
+                  </Link>
+                ))}
+
+                {/* Resume Download Button */}
+                <a
+                  href="/Khushant_Resume.pdf"
+                  download="Khushant_Resume.pdf"
+                  className="px-3 py-2 md:py-1.5 rounded-lg md:rounded-full text-sm font-medium flex items-center gap-2 bg-gradient-to-r from-teal-500 to-blue-500 text-white hover:brightness-110 transition"
+                >
+                  <FaDownload /> Resume
+                </a>
+
+                {/* Dark Mode Toggle */}
+                <button
+                  onClick={toggleDarkMode}
+                  className="px-3 py-2 md:py-1.5 rounded-full text-sm font-medium text-white hover:bg-white/10 flex items-center gap-2 transition"
+                >
+                  {isDark ? <FaSun className="text-yellow-300" /> : <FaMoon className="text-blue-300" />}
+                  <span className="hidden md:inline">{isDark ? "Light" : "Dark"}</span>
+                </button>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      {/* Gradient Animation */}
+      <style>{`
+        @keyframes gradient-x {
+          0%, 100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+        }
+        .animate-gradient-x {
+          animation: gradient-x 3s linear infinite;
+          background-size: 200% 200%;
+        }
+      `}</style>
+    </header>
+  );
+}
