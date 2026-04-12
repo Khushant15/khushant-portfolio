@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Code2, Layers, BrainCircuit, Rocket, Trophy, Users } from "lucide-react";
-import HeroImg from "@/assets/images/khushant_about_simple.png";
+import HeroImg from "@/assets/images/hero.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
