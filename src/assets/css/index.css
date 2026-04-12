@@ -25,18 +25,20 @@
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #60a5fa, #34d399, #60a5fa);
+  background: linear-gradient(90deg, #a855f7, #ec4899, #a855f7);
   background-size: 200% auto;
   animation: gradient-shift 4s linear infinite;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.3));
 }
 
 .gradient-border {
   position: relative;
-  background: linear-gradient(45deg, #60a5fa, #34d399);
+  background: linear-gradient(45deg, #a855f7, #ec4899);
   padding: 2px;
   border-radius: 0.75rem;
+  box-shadow: 0 0 15px rgba(236, 72, 153, 0.15);
 }
 
 .nav-link {
@@ -50,8 +52,9 @@
   height: 2px;
   bottom: -4px;
   left: 0;
-  background: linear-gradient(45deg, #60a5fa, #34d399);
+  background: linear-gradient(45deg, #a855f7, #ec4899);
   transition: width 0.3s ease;
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
 }
 
 .nav-link:hover::after {
@@ -146,6 +149,7 @@ pre[class*="language-"] {
 
 @layer base {
   :root {
+    /* shadcn tokens */
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
@@ -171,8 +175,23 @@ pre[class*="language-"] {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+
+    /* ── Portfolio theme tokens (LIGHT) ── */
+    --pg-bg:          #f0f4ff;
+    --pg-bg-deep:     #e4ebff;
+    --pg-surface:     rgba(255,255,255,0.85);
+    --pg-border:      rgba(0,0,0,0.08);
+    --pg-text:        #0f172a;
+    --pg-text-muted:  #475569;
+    --pg-card:        rgba(255,255,255,0.9);
+    --pg-card-border: rgba(0,0,0,0.1);
+    --pg-header:      rgba(240,244,255,0.92);
+    --pg-code-bg:     #1e293b;
+    --pg-input-bg:    rgba(0,0,0,0.04);
+    --pg-input-border:rgba(0,0,0,0.12);
   }
   .dark {
+    /* shadcn tokens */
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
@@ -197,6 +216,22 @@ pre[class*="language-"] {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+
+    /* ── Portfolio theme tokens (DARK) ── */
+    --pg-bg:          #01040f;
+    --pg-bg-deep:     #020617;
+    --pg-surface:     rgba(9,17,35,0.8);
+    --pg-border:      rgba(255,255,255,0.06);
+    --pg-text:        #f8fafc;
+    --pg-text-muted:  #94a3b8;
+    --pg-card:        rgba(9,17,35,0.9);
+    --pg-card-border: rgba(168, 85, 247, 0.1);
+    --pg-header:      rgba(1,4,15,0.95);
+    --pg-code-bg:     #080b15;
+    --pg-input-bg:    rgba(255,255,255,0.04);
+    --pg-input-border:rgba(168, 85, 247, 0.2);
+    --pg-accent-pink: #ec4899;
+    --pg-glow:        0 0 20px rgba(168, 85, 247, 0.3);
   }
 }
 
@@ -208,13 +243,134 @@ pre[class*="language-"] {
     @apply bg-background text-foreground;
   }
 }
-/* Add these classes to adjust the grid colors in the top-left and bottom-right */
-.top-left-grid {
-  background-color: white;
-  opacity: 0.8; /* Make it more visible */
+/* ─────────────────────────────────────────────────────────
+   GLOBAL THEME OVERRIDES
+   All page backgrounds/text respond to the .dark class on <html>
+   via CSS custom properties defined above.
+───────────────────────────────────────────────────────── */
+
+/* Smooth theme transition */
+html {
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
-.bottom-right-grid {
-  background-color: white;
-  opacity: 0.8; /* Make it more visible */
+/* Apply --pg-bg to all main page wrappers */
+html main,
+html #root > div > main,
+.page-bg,
+[class*="bg-\\[\\#020617\\]"],
+[class*="bg-\\[\\#04081A\\]"],
+[class*="bg-\\[\\#020617\\]"] {
+  background-color: var(--pg-bg) !important;
+  color: var(--pg-text) !important;
+}
+
+/* ── Direct section background overrides ────────────── */
+
+/* Hero */
+html main.bg-\[\#020617\] {
+  background-color: var(--pg-bg) !important;
+}
+
+/* Generic deep-bg sections (Skills, Education, Experience, Contact) */
+.min-h-screen.bg-\[\#04081A\],
+.min-h-screen.bg-\[\#04081A\].relative,
+section.min-h-screen.relative.overflow-hidden.py-40.bg-\[\#04081A\],
+div.min-h-screen.bg-\[\#04081A\] {
+  background-color: var(--pg-bg-deep) !important;
+}
+
+/* Projects page */
+main.min-h-screen.bg-\[\#020617\] {
+  background-color: var(--pg-bg) !important;
+}
+
+/* General text colors */
+html:not(.dark) .text-white {
+  color: var(--pg-text) !important;
+}
+html:not(.dark) .text-gray-300,
+html:not(.dark) .text-gray-400 {
+  color: var(--pg-text-muted) !important;
+}
+
+/* ── Card backgrounds ───────────────────────────────── */
+html:not(.dark) .bg-gray-900\/80,
+html:not(.dark) .bg-gray-900\/90,
+html:not(.dark) .bg-gray-900\/70,
+html:not(.dark) .bg-gray-900\/50,
+html:not(.dark) [class*="bg-gray-900"] {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+html:not(.dark) .bg-zinc-900 {
+  background-color: #ffffff !important;
+}
+
+html:not(.dark) .bg-slate-950 {
+  background-color: var(--pg-bg) !important;
+}
+
+/* ── Header ─────────────────────────────────────────── */
+html:not(.dark) header {
+  background-color: rgba(240, 244, 255, 0.95) !important;
+}
+html:not(.dark) header nav,
+html:not(.dark) .bg-gray-900\/90.backdrop-blur-md.rounded-full {
+  background-color: rgba(230, 238, 255, 0.95) !important;
+}
+html:not(.dark) header .text-gray-300 {
+  color: #374151 !important;
+}
+
+/* ── Backdrop/glass surfaces ────────────────────────── */
+html:not(.dark) .backdrop-blur-lg.bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08) !important;
+}
+html:not(.dark) [class*="bg-white\/5"] {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+}
+html:not(.dark) [class*="bg-white\/8"],
+html:not(.dark) [class*="bg-white\/10"],
+html:not(.dark) [class*="bg-white\/15"] {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* ── Inputs ─────────────────────────────────────────── */
+html:not(.dark) input,
+html:not(.dark) textarea {
+  background: var(--pg-input-bg) !important;
+  border-color: var(--pg-input-border) !important;
+  color: var(--pg-text) !important;
+}
+html:not(.dark) input::placeholder,
+html:not(.dark) textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* ── Borders ─────────────────────────────────────────── */
+html:not(.dark) [class*="border-gray-700"],
+html:not(.dark) [class*="border-gray-800"] {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+html:not(.dark) [class*="border-white\/10"],
+html:not(.dark) [class*="border-white\/8"],
+html:not(.dark) [class*="border-white\/5"] {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ── Code window (keep dark in light mode for readability) ── */
+html:not(.dark) .code-window,
+html:not(.dark) pre[class*="language-"] {
+  background-color: var(--pg-code-bg) !important;
+}
+
+/* Grid background patterns stay subtle */
+html:not(.dark) .top-left-grid,
+html:not(.dark) .bottom-right-grid {
+  background-color: #93c5fd;
+  opacity: 0.15;
 }
